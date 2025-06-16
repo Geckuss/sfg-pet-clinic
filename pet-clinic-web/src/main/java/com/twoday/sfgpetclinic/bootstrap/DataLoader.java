@@ -3,9 +3,6 @@ package com.twoday.sfgpetclinic.bootstrap;
 import com.twoday.sfgpetclinic.model.Owner;
 import com.twoday.sfgpetclinic.model.Pet;
 import com.twoday.sfgpetclinic.model.Vet;
-import com.twoday.sfgpetclinic.services.map.PetServiceMap;
-import com.twoday.sfgpetclinic.services.map.VetServiceMap;
-import com.twoday.sfgpetclinic.services.map.OwnerServiceMap;
 import com.twoday.sfgpetclinic.services.OwnerService;
 import com.twoday.sfgpetclinic.services.PetService;
 import com.twoday.sfgpetclinic.services.VetService;
@@ -16,15 +13,13 @@ import org.springframework.stereotype.Component;
 public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
-
     private final PetService petService;
-
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
-        petService = new PetServiceMap();
+    public DataLoader(OwnerService ownerService, PetService petService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.petService = petService;
+        this.vetService = vetService;
     }
 
     @Override
