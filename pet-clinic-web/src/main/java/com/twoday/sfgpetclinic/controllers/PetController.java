@@ -3,12 +3,13 @@ package com.twoday.sfgpetclinic.controllers;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@RequestMapping("/pets")
 @Controller
-public class IndexController {
+public class PetController {
 
     @RequestMapping({"", "/", "/index", "/index.html"})
-    public String index() {
-        return "index";
+    public String listPets() {
+        return "pets";
     }
 
 }
